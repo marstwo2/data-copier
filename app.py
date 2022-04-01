@@ -19,8 +19,6 @@ def main():
     for table_name in table_names:
         process_tables(BASE_DIR, conn, table_name)
 
-
-
 if __name__ == "__main__":
     main()
 
