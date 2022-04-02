@@ -1,7 +1,6 @@
-/dc-venv/
+dc-venv/
 __pycache__
-/data/
-/retail_pg/
+retail_pg/
 .vscode
 checkproductload.ipynb
 dev.env
