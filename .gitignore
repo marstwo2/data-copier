@@ -4,5 +4,5 @@ __pycache__
 /retail_pg/
 .vscode
 checkproductload.ipynb
-.env
+dev.env
 configs.env
