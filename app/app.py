@@ -1,17 +1,16 @@
 import os
-from read import get_json_reader
-from write import load_db_table
 import sys
 
-from dotenv import find_dotenv, load_dotenv
+from read import get_json_reader
+from write import load_db_table
+
 
 def process_tables(BASE_DIR, conn, table_name):
     json_reader = get_json_reader(BASE_DIR, table_name)
-    for df in (json_reader):
+    for df in json_reader:
         load_db_table(df, conn, table_name, df.columns[0])
 
 def main():
-    load_dotenv(find_dotenv())
     BASE_DIR = os.environ.get('BASE_DIR')
     table_names = sys.argv[1].split(' ')
     configs = dict(os.environ.items())

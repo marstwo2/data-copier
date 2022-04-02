@@ -3,3 +3,6 @@ __pycache__
 /data/
 /retail_pg/
 .vscode
+checkproductload.ipynb
+.env
+configs.env
