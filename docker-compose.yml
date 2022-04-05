@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  retail_db:
+    image: postgres
+    container_name: retail_pg
+    ports:
+      - "5452:5432"
+    environment:
+      - POSTRGRES_USER=postgres
+      - POSTGRES_PASSWORD=itversity
+    volumes:
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+      - ./data/create_db_tables_pg.sql:/docker-entrypoint-initdb.d/schema.sql
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    restart: always
+    networks:
+      - data-copier-nw
+  dc-app:
+    build: .
+  
+
+  

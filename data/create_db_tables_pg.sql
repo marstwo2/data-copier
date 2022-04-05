@@ -1,3 +1,19 @@
+-- shema.sql
+-- Create retail_db database
+
+DROP DATABASE IF EXISTS retail_db;
+CREATE DATABASE retail_db;
+
+-- Create database user
+
+CREATE USER retail_user WITH ENCRYPTED PASSWORD 'itversity';
+GRANT ALL PRIVILEGES ON DATABASE retail_db TO retail_user;
+
+-- Switch to retail_db database
+\c retail_db retail_user
+
+
+
 -- Postgres Table Creation Script
 --
 
