@@ -10,14 +10,13 @@ services:
       - POSTRGRES_USER=postgres
       - POSTGRES_PASSWORD=itversity
     volumes:
-      - ./postgres.conf:/etc/postgresql/postgresql.conf
       - ./data/create_db_tables_pg.sql:/docker-entrypoint-initdb.d/schema.sql
-    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     restart: always
-    networks:
-      - data-copier-nw
   dc-app:
     build: .
-  
+networks:
+  default:
+    external:
+      name: data-copier-nw
 
   
