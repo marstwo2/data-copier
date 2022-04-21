@@ -8,15 +8,16 @@ services:
       - "5452:5432"
     environment:
       - POSTRGRES_USER=postgres
-      - POSTGRES_PASSWORD=itversity
+      - POSTGRES_PASSWORD=Changeme
     volumes:
       - ./data/create_db_tables_pg.sql:/docker-entrypoint-initdb.d/schema.sql
     restart: always
+    networks:
+      - default
   dc-app:
     build: .
 networks:
   default:
-    external:
-      name: data-copier-nw
+    name: data-copier-nw
 
   

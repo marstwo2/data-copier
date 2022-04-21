@@ -1,15 +1,19 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.6.9
 
-# Install OS Modules
-RUN apt update -y && \
-    apt install telnet vim -y && \
-    rm -rf /var/lib/apt/lists/*
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
 
 # Copy source code
-RUN mkdir -p /data-copier
-COPY app /data-copier/app
-COPY requirements.txt /data-copier
+COPY app /app
+WORKDIR /app
 
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-# Install application dependecies
-RUN pip install -r /data-copier/requirements.txt
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["python", "app.py"]
