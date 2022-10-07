@@ -1,5 +1,3 @@
-* Problem Statement - Data Copier
-
 ## Problem Statement - Data Copier
 We would like to develop the code to copy data in files using JSON Format to a Postgres Database.
 
@@ -8,7 +6,8 @@ We would like to develop the code to copy data in files using JSON Format to a P
   - The database creation SQL is located in the data/ direcotry
   - The application files are located in the app/ directory
   
-- To copy data from files to database run the docker-command.sh 
+- To copy data from files to database run the dockercommand.sh  
+
   
  
 
